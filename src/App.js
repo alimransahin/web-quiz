@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Main from './Layout/Main';
 import Home from './Components/Home/Home';
@@ -16,6 +15,11 @@ function App() {
       {
         path:'/',
         element:<Home></Home>,
+        loader: async () => fetch('https://openapi.programming-hero.com/api/quiz')
+      }, 
+      {
+        path: '/home',
+        element: <Home></Home>,
         loader: async () => fetch('https://openapi.programming-hero.com/api/quiz')
       },
       {
@@ -41,9 +45,8 @@ function App() {
    }
   ])
   return (
-    <div>
+    <div className=''>
       <RouterProvider router={router}></RouterProvider>
-      {/* <RouterProvider router={router}></RouterProvider> */}
     </div>
   );
 }
