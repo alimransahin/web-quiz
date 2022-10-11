@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Quiz from '../Quiz/Quiz';
 
 const Quizzes = () => {
     const quizzes =useLoaderData();
-    const { name,questions} = quizzes.data;
-    console.log(quizzes);
+    const { name, questions,id } = quizzes.data;
+    const [right, setRight]=useState([]);
+    const [wrong, setWrong]=useState([]);
+   
+    const checkAnswer = (option, correctAnswer)=>{
+        correctAnswer===option?alert("Success"):alert("Unsuccess");
+        
+    }
     return (
         <div className='w-11/12 mx-auto'>
             <div className="heading">
@@ -13,7 +19,11 @@ const Quizzes = () => {
             </div>
             <ul className='list-decimal'>
                 {
-                    questions.map(question=><Quiz key={question.id} question={question}></Quiz>)
+                    questions.map(question=><Quiz 
+                        key={question.id} 
+                        question={question}
+                        checkAnswer={checkAnswer}
+                        ></Quiz>)
                 }
             </ul>
         </div>
