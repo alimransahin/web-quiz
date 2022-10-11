@@ -9,12 +9,14 @@ const Home = () => {
     return (
         <div>
             <HomeHeader></HomeHeader>
-            {
-                topics.map(topic=><Topic
-                key={topic.id}
-                topic={topic}
-                ></Topic>)
-            }
+            <div className=" w-11/12 mx-auto my-5 grid md:grid-cols-2 gap-10">
+                {
+                    topics.map(topic => <Topic
+                        key={topic.id}
+                        topic={topic}
+                    ></Topic>)
+                }
+            </div>
         </div>
     );
 };
