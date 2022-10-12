@@ -8,8 +8,8 @@ const Quizzes = () => {
     const [right, setRight]=useState([]);
     const [wrong, setWrong]=useState([]);
    
-    const checkAnswer = (option, correctAnswer)=>{
-        correctAnswer===option?alert("Success"):alert("Unsuccess");
+    const checkAnswer = (result)=>{
+        console.log(result);
         
     }
     return (

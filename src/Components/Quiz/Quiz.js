@@ -5,15 +5,15 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Quiz = ({ question, checkAnswer }) => {
     const correctAnswer = question.correctAnswer;
-    const notify = () => toast(`Correct answer: ${correctAnswer}`, {
+    const notify = () => toast.info(`Correct answer: ${correctAnswer}`, {
         position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
+        theme: "colored",
+    });
+    const success = () => toast.success(`Correct answer`, {
+        theme: "colored",
+    });
+    const error = () => toast.error(`Wrong answer`, {
+           theme: "colored",
     });
     return (
         <li className='my-5'>
@@ -23,8 +23,7 @@ const Quiz = ({ question, checkAnswer }) => {
                     question.options.map(option => {
                         return <div key={option}>
                             <button onClick={
-                                correctAnswer===option?notify:notify
-                                // () => checkAnswer(option, correctAnswer)
+                                correctAnswer === option ? () => { success(); checkAnswer(true) } : () => { error(); checkAnswer(false) }
                             }>
                                 <li>
                                     {option}
