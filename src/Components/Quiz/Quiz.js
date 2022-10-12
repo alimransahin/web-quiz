@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,8 +13,29 @@ const Quiz = ({ question, checkAnswer }) => {
         theme: "colored",
     });
     const error = () => toast.error(`Wrong answer`, {
-           theme: "colored",
+        theme: "colored",
     });
+    const [answer, setAnswer] = useState([]);
+    const exist = answer.find(i => question.id === i);
+    const answerSheet = (id, status) => {
+        if (exist) {
+            alert('already done')
+        }
+        else {
+            const temp = [...answer, id];
+            setAnswer(temp);
+            if (status === true) {
+                success();
+                checkAnswer(true);
+            }
+            else {
+                error();
+                checkAnswer(false);
+            }
+
+        }
+    }
+
     return (
         <li className='my-5'>
             {question.question} <button onClick={notify}><FontAwesomeIcon icon={faEye} /></button><ToastContainer />
@@ -22,13 +43,11 @@ const Quiz = ({ question, checkAnswer }) => {
                 {
                     question.options.map(option => {
                         return <div key={option}>
-                            <button onClick={
-                                correctAnswer === option ? () => { success(); checkAnswer(true) } : () => { error(); checkAnswer(false) }
-                            }>
+                            <button onClick={correctAnswer === option ? () => answerSheet(question.id, true) : () => answerSheet(question.id, false)}>
                                 <li>
                                     {option}
                                 </li>
-                            </button><br/>
+                            </button><br />
                         </div>
                     }
                     )
