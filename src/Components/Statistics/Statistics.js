@@ -9,7 +9,7 @@ const Statistics = () => {
     const quiz = data.data;
     console.log(quiz);
     return (
-        <div className='flex my-10 mx-auto justify-center flex-col xl:flex-row'>
+        <div className='flex my-10 justify-center flex-col xl:flex-row'>
         
             <LineChart  width={500} height={300} data={quiz} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                 <Line type="monotone" dataKey="total" stroke="#8884d8" />

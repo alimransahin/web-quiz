@@ -19,7 +19,7 @@ const Quiz = ({ question, checkAnswer }) => {
     const exist = answer.find(i => question.id === i);
     const answerSheet = (id, status) => {
         if (exist) {
-            alert('already done')
+            alert('Already Answered this Question')
         }
         else {
             const temp = [...answer, id];

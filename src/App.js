@@ -47,7 +47,7 @@ function App() {
     path:'/*',
     element:<div>
       <h3 className='text-5xl text-center mt-40'>404 Error. Page Not Found.</h3>
-      <p className='text-center text-3xl mt-5'>Go to <Link className='text-blue-500' to='/'>Home page</Link></p>
+      <p className='text-center text-3xl mt-5'>Go to <Link className='text-blue-500' to='/home'>Home page</Link></p>
     </div>
    }
   ])
