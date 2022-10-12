@@ -1,3 +1,23 @@
+# Project Name
+
+Web Quiz
+
+# live website
+
+https://chimerical-peony-c61aa3.netlify.app/
+
+# project information
+
+1.use tailwind framework
+2.display and load data in home page
+3.link quiz page with dynamic url
+4.show individual result in tost
+5.show result summary in right site
+6.block section add
+7.chart add
+8.netlify reload 404 error solve
+9.show active router. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
